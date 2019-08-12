@@ -3,8 +3,13 @@ const Twitter = require('../services/TwitterUtilService');
 module.exports = {
   async tweet(req, res) {
     try {
-      const { tweet } = req.body;
-      const tweetResponse = await Twitter.tweet({ body: tweet });
+      const { location } = req.body;
+      const tweetResponse = await Twitter.tweet(location);
+      if (tweetResponse.error) {
+        return res.status(400).send({
+          error: tweetResponse.error,
+        });
+      }
       return res.status(200).send(tweetResponse);
     } catch (err) {
       return res.status(500).send({
