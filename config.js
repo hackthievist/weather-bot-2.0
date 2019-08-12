@@ -7,4 +7,16 @@ module.exports = {
       access_token_secret: process.env.ACCESS_TOKEN_SECRET,
     },
   },
+  google: {
+    api: {
+      url: process.env.GOOGLE_MAP_API_URL,
+      key: process.env.GOOGLE_API_KEY,
+    },
+  },
+  darksky: {
+    api: {
+      url: process.env.DARKSKY_API_URL,
+      key: process.env.DARKSKY_API_KEY,
+    },
+  },
 };
